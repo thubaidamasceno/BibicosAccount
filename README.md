@@ -4,6 +4,7 @@ Plataforma de Gerenciamento Financeiro para Famílias
 Esse projeto é meu Trabalho de Conclusão de Curso de Pós-Graduação em Engenharia de Software pela PUC-MINAS, mas não apenas isso ;)
 
 Link para o Wireframe no Figma:
+
 https://www.figma.com/proto/p70Kgtl2SQqIk0DoSYRNNG/BibicosAccount?type=design&node-id=128-44212&scaling=scale-down&page-id=109%3A5435&starting-point-node-id=128%3A44212
 
 ## Introdução
