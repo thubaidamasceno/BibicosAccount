@@ -3,6 +3,9 @@ Plataforma de Gerenciamento Financeiro para Famílias
 
 Esse projeto é meu Trabalho de Conclusão de Curso de Pós-Graduação em Engenharia de Software pela PUC-MINAS, mas não apenas isso ;)
 
+Link para o Wireframe no Figma:
+https://www.figma.com/proto/p70Kgtl2SQqIk0DoSYRNNG/BibicosAccount?type=design&node-id=128-44212&scaling=scale-down&page-id=109%3A5435&starting-point-node-id=128%3A44212
+
 ## Introdução
 
 A gestão financeira pessoal é uma atividade que pode ser exercida de diversas maneiras diferentes, e independentemente da faixa de renda ou do nível de escolaridade dos indivíduos, uma pessoa com uma vida financeira saudável tem consciência razoável sobre seus saldos bancários, patrimônio, direitos a receber e obrigações a pagar. Anotações em papel, planilhas eletrônicas e aplicativos de gerenciamento financeiros estão entre as soluções conhecidas mais utilizadas. Os gerenciadores de finanças pessoais não são uma categoria nem um pouco nova de aplicativo, e no mercado existem diversas soluções, para variados perfis de usuário e em diferentes plataformas. 
