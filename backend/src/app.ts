@@ -1,6 +1,6 @@
-import {config, opt } from "./config";
-import {test,sync, orm} from "./orm";
-
+import { config, opt } from "./config";
+const { test, sync, orm } = require("./model");
+// import model from "./model";
 const {
   logger,
   logi,
@@ -20,7 +20,8 @@ var http = require("http"),
   errorhandler = require("errorhandler"),
   https = require("https"),
   compression = require("compression"),
-  modulos = require("./modules");
+  modulos = require("./modules"),
+  model = require("./model");
 
 var isProduction = process.env.NODE_ENV === "production";
 
@@ -40,7 +41,7 @@ app.use(require("method-override")());
 
 app.use(
   session({
-    secret:config.sessionSecret, //|| process.env.SESSION_SECRET || "dfjjfvhsdysfysd",
+    secret: config.sessionSecret, //|| process.env.SESSION_SECRET || "dfjjfvhsdysfysd",
     cookie: { maxAge: 60000 },
     resave: false,
     saveUninitialized: false,
@@ -78,9 +79,9 @@ app.use(
 
 test();
 sync();
-require("./config/passport");
-var auth = require("./routes/auth");
-app.use(require("./routes"));
+require("./controller/passport");
+var auth = require("./controller/auth");
+app.use(require("./controller"));
 
 /// catch 404 and forward to error handler
 app.use(function (_req: any, _res: any, next: any) {
@@ -106,7 +107,7 @@ if (!isProduction) {
       errors: {
         message: err.message,
         // error: err,
-      error: {},
+        error: {},
       },
     });
   });
@@ -132,7 +133,7 @@ httpServer.listen(process.env.PORT || 46954, () => {
 });
 
 try {
-/**  const certpath = "../certs";
+  /**  const certpath = "../certs";
   const privateKey = fs.readFileSync(
     certpath + "/cert.com.priv",
     "utf8"
@@ -149,7 +150,6 @@ try {
     ca: ca,
   };
 */
-
   //const httpsServer = https.createServer(credentials, app);
   //httpsServer.listen(process.env.PORTSSL || 46955, () => {
   //  logi("Listening on port " + httpsServer.address().port);

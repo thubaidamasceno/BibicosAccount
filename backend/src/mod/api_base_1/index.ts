@@ -15,12 +15,7 @@ import {
 
 import {config, opt } from "../../config";
 
-// const datetime = require('datetime')
-const offset = new Date().getTimezoneOffset();
 
-export async function installUpdatter() {
-}
-installUpdatter();
 
 const router = require("express").Router();
 

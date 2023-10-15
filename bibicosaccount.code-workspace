@@ -2,6 +2,9 @@
 	"folders": [
 		{
 			"path": ".."
+		},
+		{
+			"path": "../../gits/PCPAramita"
 		}
 	],
 	"settings": {}

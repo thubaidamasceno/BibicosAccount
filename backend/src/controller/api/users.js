@@ -1,9 +1,9 @@
 // var mongoose = require("mongoose");
 var router = require("express").Router();
 var passport = require("passport");
-var User = require("../../model/user");
-// var User = mongoose.model("User");
-// var Usuario = mongoose.model("Usuario");
+
+const {orm, User} = require("../../model")
+
 var auth = require("../auth");
 var config = require("../../config").config;
 const nodemailer = require("nodemailer");
@@ -21,12 +21,12 @@ router.get("/current", auth.optional, function (req, res, next) {
     // return res.send(null);
   }
   User.findByPk(req.payload.id)
-    .then(function (user) {
+    .then(async function (user) {
       if (!user) {
         return res.sendStatus(401);
       }
-
-      return res.json({ user: user.toAuthJSON() });
+      const toAuthJson = await user.toAuthJSON() 
+      return res.json({ user: toAuthJson});
     })
     .catch(next);
 });
@@ -35,12 +35,12 @@ router.get("/current", auth.required, function (req, res, next) {
   // console.log({ crr: req });
 
   User.findByPk(req.payload.id)
-    .then(function (user) {
+    .then(async function (user) {
       if (!user) {
         return res.sendStatus(401);
       }
 
-      return res.json({ user: user.toAuthJSON() });
+      return res.json({ user: await user.toAuthJSON() });
     })
     .catch((next) => {
       // if (!req.payload || !req.payload.id) {
@@ -53,11 +53,11 @@ const Auth = (req, res, next) => {
   return passport.authenticate(
     "local",
     { session: false },
-    function (err, user, info) {
+    async function (err, user, info) {
       if (!err && user) {
         user.token = user.generateJWT();
         logi({ req, res, err, user, info });
-        return res.json({ user: user.toAuthJSON() });
+        return res.json({ user: await user.toAuthJSON() });
       } else if (err) {
         logi({ req, res, err, user, info });
         return next({ err, user, info });
@@ -101,6 +101,7 @@ const criaUser = ({
 };
 
 router.post("/login", function (req, res, next) {
+  // console.log(orm)
   let username = req.body.user.username;
   let password = req.body.user.password;
 
@@ -245,12 +246,12 @@ router.post("/recoverpass", async (req, res, next) => {
           subject: "Recuperação de senha - Sistema BibicosAccount",
           text: `Acesse o seguinte endereço para criar ou alterar sua senha: ${link}`,
           encoding: "quoted-printable",
-          html: `<div dir="ltr"><div><h2>Recuperação de Senha - Sistema BibicosAccount</h2>Acesse o seguinte endereço para trocar sua senha:<br/><a href="${link}">${link}</a></div>
+          html: `<div dir="ltr"><div><h2>Criação de Senha - Sistema BibicosAccount</h2>Acesse o seguinte endereço para criar sua senha:<br/><a href="${link}">${link}</a></div>
                     <div>
                         <div dir="ltr" data-smartmail="gmail_signature">
                             <div dir="ltr">
                                 <div><br></div>
-                                <div>Caso haja qualquer dúvida ou questionamento estarei à disposição.<br></div>
+                                <div>Caso não tenha solicitado esse email, por favor desconsidere.<br></div>
                                 <div>Atenciosamente</div>
                             </div>
                         </div>

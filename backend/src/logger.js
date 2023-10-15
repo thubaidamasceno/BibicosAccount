@@ -15,15 +15,15 @@ const rotateFile = new winston.transports.DailyRotateFile({
   maxFiles: "60d",
   colorize: false,
   decolorize: true,
-  // format: format.json(),
+  format: format.prettyPrint(),//format.json(),
   extension:'.log',
   createSymlink: true,
-  symlinkName:`${process.env.LOGFILE || "/var/log/generic"}.info.log`,
+  symlinkName:`${process.env.LOGFILE || "/var/log_generic"}.info.log`,
   level: "info",
 });
 
 const rotateFile_debug = new winston.transports.DailyRotateFile({
-  filename: `${process.env.LOGFILE || "/var/log/generic"}-%DATE%.silly`,
+  filename: `${process.env.LOGFILE || "/var/log_generic"}-%DATE%.silly`,
   datePattern: "YYYY-MM",
   zippedArchive: false,
   maxSize: "10m",
@@ -31,9 +31,9 @@ const rotateFile_debug = new winston.transports.DailyRotateFile({
   colorize: false,
   decolorize: true,
   extension:'.log',
-  // format: format.json(),
+  format: format.prettyPrint(),//format.json(),
   createSymlink: "true",
-  symlinkName:`${process.env.LOGFILE || "/var/log/generic"}.silly.log`,
+  symlinkName:`${process.env.LOGFILE || "/var/log_generic"}.silly.log`,
   level: "silly",
 });
 
@@ -47,7 +47,7 @@ const transports = [
       format.prettyPrint(),
       // format.json(),
       format.colorize(),
-      format.simple(),
+      // format.simple(),
       // format.printf(
       //     (info) => `${JSON.stringify(info)}`
       //   )
@@ -82,16 +82,14 @@ const logger = createLogger(logConfiguration);
 // }
 
 const expressErrLogger = expressWinston.errorLogger({
-  dumpExceptions: false,
-  // dumpExceptions: true,
-  showStack: false,
+  dumpExceptions: true,
+  showStack: true,
   transports,
 });
 
 const expressLogger = expressWinston.logger({
-  dumpExceptions: false,
-  // dumpExceptions: true,
-  showStack: false,
+  dumpExceptions: true,
+  showStack: true,
   transports,
 });
 
@@ -99,7 +97,6 @@ const expressLogger = expressWinston.logger({
  * Attempts to add file and line number info to the given log arguments.
  */
 function formatLogArguments(args) {
-  return args;
   args = Array.prototype.slice.call(args);
   if (!args[1] || !(args[1] && args[1].codeline)) {
     var codelineNumber = (args[1] && args[1].codelineNumber) || 1;

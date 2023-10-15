@@ -1,11 +1,11 @@
 const { Model, DataTypes, Deferrable } = require("sequelize");
-import { test, orm as sequelize } from "../orm";
+import { test, orm as sequelize } from "./orm";
 
 var crypto = require("crypto");
 var jwt = require("jsonwebtoken");
 var secret = require("../config").config.sessionSecret;
 
-export class User extends Model {
+class User extends Model {
   // declare id: number; // this is ok! The 'declare' keyword ensures this field will not be emitted by TypeScript.
 
   //function
@@ -43,11 +43,19 @@ export class User extends Model {
 
   //function
   toAuthJSON() {
+    return (async ()=>({
+      username: this.getDataValue("username"),
+      token: this.generateJWT(),
+      email: this.getDataValue("email"),
+      role: this.getDataValue("role"),
+    }))()
+
     return {
       username: this.getDataValue("username"),
       token: this.generateJWT(),
+      // email: this.getDataValue("email"),
       role: this.getDataValue("role"),
-    };
+    } 
   }
 
   //function
@@ -59,6 +67,8 @@ export class User extends Model {
     };
   }
 }
+
+
 
 User.init(
   {
@@ -114,4 +124,4 @@ User.init(
   }
 );
 
-module.exports = User;
+export default { User ,}
