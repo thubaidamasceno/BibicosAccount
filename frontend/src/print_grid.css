@@ -1,0 +1,16 @@
+.ag-row-level-0 {
+    /* background-color: #c3c6cc !important; */
+}
+
+@media print {
+    body {
+        overflow: visible;
+    }
+    .ag-cell {
+        page-break-inside: avoid !important;
+    }
+}
+
+.ag-cell {
+    page-break-inside: avoid !important;
+}

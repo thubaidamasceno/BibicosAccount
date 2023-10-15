@@ -1,0 +1,212 @@
+{
+    "name": "BibicosAccount",
+    "version": "0.0.1",
+    "description": "BibicosAccount - Controle de Finanças Coletivas - BackEnd",
+    "homepage": ".",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/thubaidamasceno/BibicosAccount.git"
+    },
+    "license": "MIT",
+    "author": "Thubaí Damasceno (https://damasceno.pro)",
+    "scripts": {
+        "build": "node scripts/build.js",
+        "build:n17": "react-scripts --openssl-legacy-provider build",
+        "changelog": "auto-changelog --starting-version 4.1.0 --commit-limit false --hide-credit",
+        "lint": "eslint \"src/**/*.js\"",
+        "start": "node scripts/start.js",
+        "start:n17": "react-scripts --openssl-legacy-provider start",
+        "test": "node scripts/test.js",
+        "test:cov": "npm test -- --coverage --watchAll=false",
+        "test:debug": "react-scripts --inspect-brk test --runInBand"
+    },
+    "config": {
+        "coreui_library_short_version": "4.1"
+    },
+    "dependencies": {
+        "@babel/core": "7.12.3",
+        "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+        "@casl/ability": "^5.4.3",
+        "@casl/react": "^2.3.0",
+        "@coreui/chartjs": "^3.0.0",
+        "@coreui/coreui": "^4.1.0",
+        "@coreui/icons": "^2.1.0",
+        "@coreui/icons-react": "^2.0.0",
+        "@coreui/react": "^4.1.0",
+        "@coreui/react-chartjs": "^2.0.0",
+        "@coreui/utils": "^1.3.1",
+        "@pmmmwh/react-refresh-webpack-plugin": "0.4.3",
+        "@popperjs/core": "^2.11.2",
+        "@svgr/webpack": "5.5.0",
+        "@typescript-eslint/eslint-plugin": "^4.5.0",
+        "@typescript-eslint/parser": "^4.5.0",
+        "@wojtekmaj/enzyme-adapter-react-17": "^0.6.5",
+        "ag-grid-community": "^26.2.1",
+        "ag-grid-enterprise": "^26.2.1",
+        "ag-grid-react": "^26.2.0",
+        "apexcharts": "^3.33.0",
+        "axios": "^0.24.0",
+        "babel-eslint": "^10.1.0",
+        "babel-jest": "^26.6.0",
+        "babel-loader": "8.1.0",
+        "babel-plugin-named-asset-import": "^0.3.7",
+        "babel-preset-react-app": "^10.0.0",
+        "bfj": "^7.0.2",
+        "camelcase": "^6.1.0",
+        "case-sensitive-paths-webpack-plugin": "2.3.0",
+        "chart.js": "^3.6.0",
+        "classnames": "^2.3.1",
+        "classnames-prefix": "^0.0.4",
+        "connected-react-router": "^6.8.0",
+        "core-js": "^3.19.1",
+        "css-loader": "4.3.0",
+        "dotenv": "8.2.0",
+        "dotenv-expand": "5.1.0",
+        "enzyme": "^3.11.0",
+        "eslint": "^7.11.0",
+        "eslint-config-react-app": "^6.0.0",
+        "eslint-plugin-flowtype": "^5.2.0",
+        "eslint-plugin-import": "^2.22.1",
+        "eslint-plugin-jest": "^24.1.0",
+        "eslint-plugin-jsx-a11y": "^6.3.1",
+        "eslint-plugin-react": "^7.21.5",
+        "eslint-plugin-react-hooks": "^4.2.0",
+        "eslint-plugin-testing-library": "^3.9.2",
+        "eslint-webpack-plugin": "^2.5.2",
+        "file-loader": "6.1.1",
+        "flexlayout-react": "^0.6.4",
+        "fs-extra": "^9.0.1",
+        "git-revision-webpack-plugin": "3.0.6",
+        "html-webpack-plugin": "4.5.0",
+        "identity-obj-proxy": "3.0.0",
+        "jest": "26.6.0",
+        "jest-circus": "26.6.0",
+        "jest-resolve": "26.6.0",
+        "jest-watch-typeahead": "0.6.1",
+        "mini-css-extract-plugin": "0.11.3",
+        "moment": "^2.29.1",
+        "numeral": "^2.0.6",
+        "object-path": "^0.11.8",
+        "object-path-immutable": "^4.1.2",
+        "optimize-css-assets-webpack-plugin": "5.0.4",
+        "pnp-webpack-plugin": "1.6.4",
+        "postcss-flexbugs-fixes": "4.2.1",
+        "postcss-loader": "3.0.0",
+        "postcss-normalize": "8.0.1",
+        "postcss-preset-env": "6.7.0",
+        "postcss-safe-parser": "5.0.2",
+        "prompts": "2.4.0",
+        "prop-types": "^15.7.2",
+        "rc-menu": "^9.5.5",
+        "react": "^17.0.2",
+        "react-apexcharts": "^1.3.9",
+        "react-app-polyfill": "^2.0.0",
+        "react-dev-utils": "^11.0.3",
+        "react-dom": "^17.0.2",
+        "react-popper": "^2.2.5",
+        "react-popper-tooltip": "^4.3.1",
+        "react-redux": "^7.2.6",
+        "react-refresh": "^0.8.3",
+        "react-router-dom": "^5.3.0",
+        "react-router-redux": "^4.0.8",
+        "react-tabs": "^3.2.3",
+        "reduce-reducers": "^1.0.4",
+        "redux": "4.1.2",
+        "redux-devtools-extension": "^2.13.9",
+        "redux-logger": "^3.0.6",
+        "redux-saga": "^1.1.3",
+        "redux-thunk": "^2.4.1",
+        "reselect": "^4.1.5",
+        "resolve": "1.18.1",
+        "resolve-url-loader": "^3.1.2",
+        "sass-loader": "^10.0.5",
+        "semver": "7.3.2",
+        "simplebar-react": "^2.3.6",
+        "style-loader": "1.3.0",
+        "superagent": "^6.1.0",
+        "superagent-promise": "^1.1.0",
+        "terser-webpack-plugin": "4.2.3",
+        "ts-pnp": "1.2.0",
+        "typescript": "^4.5.4",
+        "url-loader": "4.1.1",
+        "webpack": "4.44.2",
+        "webpack-dev-server": "3.11.1",
+        "webpack-manifest-plugin": "2.2.0",
+        "workbox-webpack-plugin": "5.1.4"
+    },
+    "devDependencies": {
+        "@types/object-path": "^0.11.1",
+        "@types/react-router-dom": "^5.3.2",
+        "auto-changelog": "~2.3.0",
+        "eslint": "^7.32.0",
+        "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
+        "prettier": "2.5.0",
+        "sass": "^1.43.5"
+    },
+    "engines": {
+        "node": ">=10",
+        "npm": ">=6"
+    },
+    "jest": {
+        "roots": [
+            "<rootDir>/src"
+        ],
+        "collectCoverageFrom": [
+            "src/**/*.{js,jsx,ts,tsx}",
+            "!src/**/*.d.ts"
+        ],
+        "setupFiles": [
+            "react-app-polyfill/jsdom"
+        ],
+        "setupFilesAfterEnv": [
+            "<rootDir>/src/setupTests.js"
+        ],
+        "testMatch": [
+            "<rootDir>/src/**/__tests__/**/*.{js,jsx,ts,tsx}",
+            "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
+        ],
+        "testEnvironment": "jsdom",
+        "testRunner": "/home/node/app/node_modules/jest-circus/runner.js",
+        "transform": {
+            "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/config/jest/babelTransform.js",
+            "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+            "^(?!.*\\.(js|jsx|mjs|cjs|ts|tsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+        },
+        "transformIgnorePatterns": [
+            "[/\\\\]node_modules[/\\\\].+\\.(js|jsx|mjs|cjs|ts|tsx)$",
+            "^.+\\.module\\.(css|sass|scss)$"
+        ],
+        "modulePaths": [],
+        "moduleNameMapper": {
+            "^react-native$": "react-native-web",
+            "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+            "^src/(.*)$": "<rootDir>/src/$1"
+        },
+        "moduleFileExtensions": [
+            "web.js",
+            "js",
+            "web.ts",
+            "ts",
+            "web.tsx",
+            "tsx",
+            "json",
+            "web.jsx",
+            "jsx",
+            "node"
+        ],
+        "watchPlugins": [
+            "jest-watch-typeahead/filename",
+            "jest-watch-typeahead/testname"
+        ],
+        "resetMocks": true
+    },
+    "babel": {
+        "presets": [
+            "react-app"
+        ]
+    },
+    "eslintConfig": {
+        "extends": "react-app"
+    }
+}

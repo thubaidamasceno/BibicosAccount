@@ -1,0 +1,46 @@
+version: '3.6'
+
+services:
+  pcp14:
+    image: node:12-buster
+    container_name: pcp14
+    restart: always
+    user: "node"
+    working_dir: /home/node/app/
+    logging:
+      driver: "json-file"
+      options:
+        tag: "{{.ImageName}}|{{.Name}}|{{.ImageFullID}}|{{.FullID}}"
+    # logging:
+      # driver: "fluentd"
+      # options:
+        # fluentd-address: 172.17.0.1:24224
+        # tag: f13
+    environment:
+      # - SSL_CRT_FILE=../certs/aramita.manutime.com.cert
+      # - SSL_KEY_FILE=../certs/aramita.manutime.com.priv
+      # - HTTPS=true
+      - PORT=13000
+      - HOST=0.0.0.0
+      - NODE_ENV=development
+    volumes:
+      - ./:/home/node/app
+      - /srv:/srv
+    ports:
+        - "0.0.0.0:13000:13000"
+    command: "yarn start"
+    networks:
+      - ctb01_default
+    labels:
+      - "traefik.enable=true"
+      - 'traefik.http.routers.pcp14.rule=Host(`pcp14dev.damasceno.pro`)'
+      - "traefik.http.routers.pcp14.entrypoints=websecure"
+      - "traefik.http.routers.pcp14.tls.certresolver=letsencrypt"
+      - "traefik.http.routers.pcp14.service=pcp14"
+      - 'traefik.http.routers.pcp14.middlewares=gzip@file'
+      - "traefik.http.services.pcp14.loadbalancer.server.port=13000"
+
+networks:
+  ctb01_default:
+    external:
+      name: ctb01_default

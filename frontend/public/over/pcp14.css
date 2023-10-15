@@ -1,0 +1,72 @@
+.ag-host {
+    /* position: absolute; */
+    /* bottom: 48px;
+    top: 82px; */
+    /* right: 8px; */
+    /* width: calc(60%-64px); */
+    width: 100%;
+}
+
+.flex-grow-1 {
+    display: flex;
+}
+
+.flexcon1 {
+    /* margin-top: -18px; */
+}
+
+.container-lg {
+    max-width: 4500px !important;
+}
+
+.leftbar {
+    padding: 5px;
+    padding-left: 56px;
+}
+
+.avatar-img {
+    border: gray 1px solid;
+}
+
+.ag-row-even {
+    background-color: var(--cui-gray-100) !important;
+}
+
+.footer {
+    min-height: 2rem !important;
+    padding: 0rem 1rem !important;
+}
+
+.no-pad {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.ag-row-footer {
+    font-weight: bolder;
+}
+
+.ag-row-group-expanded {
+    font-weight: 500;
+}
+
+.react-tabs {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.react-tabs__tab-panel {
+    height: 100%;
+}
+
+.tblSAldo thead {
+    font-weight: bold;
+}
+
+
+
+.ag-cell-wrap-text {
+    word-break: break-word !important;
+}
